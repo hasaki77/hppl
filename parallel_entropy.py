@@ -3,7 +3,7 @@
 from mpi4py import MPI
 import numpy as np
 import argparse
-import functions as f
+import custom_functions as custom_f
 
 # Constants
 hbar = 1.054e-34
@@ -32,8 +32,8 @@ if rank == 0:
     global_integral = np.array([0], dtype=np.float64)
 
 # Main Calculations
-entropy_value = kB * f.trapezoidal_function(
-    f=f.entropy,
+entropy_value = kB * custom_f.trapezoidal_function(
+    f=custom_f.entropy,
     xmin=start,
     xmax=end,
     n=args.n,
